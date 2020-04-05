@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardService } from './card.service';
+import { Card } from './card';
 
 @Component({
   selector: 'blog-card',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  cards: Card[] = [];
 
+  constructor(private cardService: CardService) {}
+  
   ngOnInit(): void {
+    this.cardService.listCards().subscribe(cards => this.cards = cards);
   }
 
 }

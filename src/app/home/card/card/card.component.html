@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <section class="row justify-content-center">
+    <blog-card-item 
+      *ngFor="let card of cards" 
+      [url]="card.url" 
+      [description]="card.description"
+      [title]="card.title">
+    </blog-card-item>
+  </section>
+</div>
