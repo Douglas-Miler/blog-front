@@ -1,0 +1,36 @@
+.not-found-image{
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+figcaption{
+    padding: 10px 0 0 20px;
+}
+
+figcaption *{
+    color: rgb(255, 255, 255);
+}
+
+figcaption p{
+    padding: 0;
+    font-size: 20px;
+}
+
+figcaption h1{
+    margin: 0;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) { 
+    figcaption h1{
+        font-size: 200px;
+    }
+
+    figcaption p{
+        font-size: 30px;
+    }
+}

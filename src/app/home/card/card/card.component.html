@@ -8,3 +8,13 @@
     </blog-card-item>
   </section>
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <blog-previous-button (click)="loadLess()" [hasMore] = hasMore></blog-previous-button>
+    </li>
+    <li class="page-item">
+      <blog-next-button (click)="loadMore()" [hasMore] = hasMore></blog-next-button>
+    </li>
+  </ul>
+</nav>
