@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 import { CardComponent } from './card/card.component';
 import { CardItemComponent } from './card-item/card-item.component';
@@ -16,8 +15,7 @@ import { PreviousButtonComponent } from './previous-button/previous-button.compo
     PreviousButtonComponent
   ],
   imports: [
-    CommonModule,
-    HttpClientModule
+    CommonModule
   ],
   exports: [
     CardComponent
