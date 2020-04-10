@@ -5,10 +5,14 @@ import { CarouselComponent } from './carousel/carousel.component';
 
 
 @NgModule({
-  declarations: [CarouselComponent],
+  declarations: [
+    CarouselComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports: [CarouselComponent]
+  exports: [
+    CarouselComponent
+  ]
 })
 export class CarouselModule { }

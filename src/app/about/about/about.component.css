@@ -1,0 +1,9 @@
+#background{
+    position: relative;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    filter: brightness(5%);
+}

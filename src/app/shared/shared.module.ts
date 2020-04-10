@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { ModalModule } from './modal/modal.module';
@@ -10,6 +11,7 @@ import { SharedComponent } from './shared/shared.component';
         SharedComponent
     ],
     imports:[
+      CommonModule,
       FooterModule,
       NavbarModule,
       ModalModule

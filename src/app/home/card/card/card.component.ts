@@ -1,7 +1,9 @@
-import { CardService } from './card.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
+import { ToastrService } from 'ngx-toastr';
+
+import { CardService } from './card.service';
 import { Card } from './card';
 
 @Component({
@@ -17,7 +19,8 @@ export class CardComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute, 
-    private cardService: CardService
+    private cardService: CardService,
+    private toastr: ToastrService
   ) {}
   
   ngOnInit(): void {
@@ -26,12 +29,12 @@ export class CardComponent implements OnInit {
 
   loadMore(){
     this.cardService.listCardsPaginated(this.currentPage+1).subscribe(cards => {
-      console.log(this.currentPage);
       if(cards.length){
         this.cards = cards;
         this.currentPage++;
       }else{
         this.hasMore = false;
+        this.toastr.warning('Você chegou ao final', 'Atenção!', {timeOut: 2000});
       }
     });
   }
@@ -39,7 +42,6 @@ export class CardComponent implements OnInit {
   loadLess(){
     if(this.currentPage >= 1){
       this.cardService.listCardsPaginated(this.currentPage-1).subscribe(cards => {
-        console.log(this.currentPage);
         if(cards.length){
           this.cards = cards;
           this.currentPage--;

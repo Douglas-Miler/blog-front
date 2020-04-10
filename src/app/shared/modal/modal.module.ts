@@ -5,10 +5,14 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 
 
 @NgModule({
-  declarations: [LoginModalComponent],
+  declarations: [
+    LoginModalComponent
+  ],
   imports: [
     CommonModule
   ],
-  exports: [LoginModalComponent]
+  exports: [
+    LoginModalComponent
+  ]
 })
 export class ModalModule { }
