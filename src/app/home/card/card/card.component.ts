@@ -34,7 +34,7 @@ export class CardComponent implements OnInit {
         this.currentPage++;
       }else{
         this.hasMore = false;
-        this.toastr.warning('Você chegou ao final', 'Atenção!', {timeOut: 2000});
+        this.toastr.warning('Você chegou ao fim', 'Atenção!', {timeOut: 2000});
       }
     });
   }

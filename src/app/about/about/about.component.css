@@ -1,9 +1,15 @@
-#background{
-    position: relative;
+.card-position-image {
+    width: 60px;
+    height: 89px;
+}
+.ia{
     object-fit: cover;
     object-position: center;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    filter: brightness(5%);
+    height: 500px;
+}
+
+@media (max-width: 720px){
+    #head-main{
+        font-size: 50px;
+    }
 }

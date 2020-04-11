@@ -8,16 +8,13 @@ import { CardComponent } from './card/card.component';
 import { CardItemComponent } from './card-item/card-item.component';
 import { NextButtonComponent } from './next-button/next-button.component';
 import { PreviousButtonComponent } from './previous-button/previous-button.component';
-import { ToastComponent } from './toast/toast.component';
-
 
 @NgModule({
   declarations: [
     CardComponent, 
     CardItemComponent, 
     NextButtonComponent, 
-    PreviousButtonComponent, 
-    ToastComponent
+    PreviousButtonComponent
   ],
   imports: [
     CommonModule,
