@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ReactiveFormsModule } from '@angular/forms';
+
+import { SmallMessageComponent } from './small-message/small-message.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
-
-
 
 @NgModule({
   declarations: [
-    LoginModalComponent
+    LoginModalComponent,
+    SmallMessageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginModalComponent
