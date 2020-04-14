@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { ModalModule } from './modal/modal.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { FooterModule } from './footer/footer.module';
 import { SharedComponent } from './shared/shared.component';
@@ -13,8 +12,7 @@ import { SharedComponent } from './shared/shared.component';
     imports:[
       CommonModule,
       FooterModule,
-      NavbarModule,
-      ModalModule
+      NavbarModule
     ],
     exports:[
       SharedComponent
