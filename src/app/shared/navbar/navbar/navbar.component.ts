@@ -33,6 +33,10 @@ export class NavbarComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  gotToAboutPage(){
+    this.router.navigate(['/about']);
+  }
+
   login() {
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;

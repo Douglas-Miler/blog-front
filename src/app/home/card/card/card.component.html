@@ -1,6 +1,9 @@
+<div class="container mt-5">
+  <h3 class="text-center border-bottom mat-display-1 mb-0">Posts mais recentes</h3>
+</div>
 <div class="container-fluid">
   <section class="row justify-content-center">
-    <blog-card-item 
+    <blog-card-item class="m-4 col-lg-3"
       *ngFor="let card of cards" 
       [url]="card.url" 
       [description]="card.description"
@@ -11,10 +14,10 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item">
-      <blog-previous-button (click)="loadLess()" [hasMore] = hasMore></blog-previous-button>
+      <button mat-button (click)="loadLess()">Voltar</button>
     </li>
-    <li class="page-item">
-      <blog-next-button (click)="loadMore()" [hasMore] = hasMore></blog-next-button>
+    <li class="page-item ml-2">
+      <button mat-raised-button (click)="loadMore()">Próximo</button>
     </li>
   </ul>
 </nav>

@@ -1,8 +1,18 @@
-<article class="card m-4 p-2 col-md-4">
-    <img class="card-img-top card-position-image" [src]="url" [alt]="description">
-    <div class="card-body">
-      <h5 class="card-title">{{title}}</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="btn btn-primary">Descubra!</a>
-    </div>
-</article>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Douglas</mat-card-title>
+    <mat-card-subtitle>Analista Desenvolvedor</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="url" [alt]="description">
+  <mat-card-content>
+    <h2>{{title}}</h2>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary">DESCUBRA!</button>
+  </mat-card-actions>
+</mat-card>

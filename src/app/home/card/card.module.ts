@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card'; 
+import {MatDividerModule} from '@angular/material/divider';
+
 import { ToastrModule } from 'ngx-toastr';
 
 import { CardComponent } from './card/card.component';
 import { CardItemComponent } from './card-item/card-item.component';
-import { NextButtonComponent } from './next-button/next-button.component';
-import { PreviousButtonComponent } from './previous-button/previous-button.component';
 
 @NgModule({
   declarations: [
     CardComponent, 
-    CardItemComponent, 
-    NextButtonComponent, 
-    PreviousButtonComponent
+    CardItemComponent
   ],
   imports: [
     CommonModule,
-    BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot() // ToastrModule added
+    ToastrModule.forRoot(), // ToastrModule added
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule
   ],
   exports: [
     CardComponent

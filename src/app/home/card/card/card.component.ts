@@ -8,8 +8,7 @@ import { Card } from './card';
 
 @Component({
   selector: 'blog-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  templateUrl: './card.component.html'
 })
 export class CardComponent implements OnInit {
 
