@@ -1,11 +1,28 @@
 <blog-shared>
     <div class="container" style="padding-top: 250px;">
-        <div>
-            <h1 class="mat-display-3 text-center">"De programadores para programadores"</h1>
+        <div 
+            style="background-color: rgba(52, 119, 179, 0.5);"
+            class="text-white p-3">
+            <h1 
+                class="mat-display-2 text-center w-100 mb-3">
+                BEM-VINDO
+            </h1>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <p
+                        class="text-center">
+                        "Formamos uma equipe que tem o objetivo de passar adiante 
+                        algumas soluções para problemas ordinários, que surgem ao longo 
+                        desta carreira de TI."
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
         </div>
-        <div class="row pt-5">
-            <div class="col-lg-6 text-justify mr-5">
-                <h2>A CODE UP</h2>
+        <div class="row pt-5 align-items-center">
+            <div id="codeup" class="col-lg-6 text-justify mr-5">
+                <h2 class="border-bottom">A CODE UP</h2>
                 <p>
                 No ano de 2018, cinco estudantes de Ciência da Computação decidiram
                 se juntar, para fazer o que ia ser um dos melhores TCCs já visto 
@@ -25,7 +42,7 @@
                 </p>
             </div>
             <div class="col-lg-5">
-                <h2 class="w-100 text-start">AUTORES</h2>
+                <h2 class="w-100 text-start border-bottom">AUTORES</h2>
                 <div class="row">
                     <blog-person-card *ngFor="let card of cards"
                         [name]="card.name"
