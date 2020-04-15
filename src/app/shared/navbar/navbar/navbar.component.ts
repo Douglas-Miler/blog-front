@@ -47,7 +47,7 @@ export class NavbarComponent implements OnInit {
         .authenticate(email, password)
         .subscribe(
           () => {
-            this.router.navigate(['']);
+            this.router.navigate(['not-found']);
             this.modalService.dismissAll();
           },
           err => {
