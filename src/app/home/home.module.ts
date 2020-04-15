@@ -1,8 +1,8 @@
-import { IntroductionModule } from './introduction/introduction.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { IntroductionModule } from './introduction/introduction.module';
 import { SharedModule } from './../shared/shared.module';
 import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';

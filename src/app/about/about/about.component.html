@@ -1,11 +1,11 @@
 <blog-shared>
-    <div class="container text-black my-5 py-5 ">
-        <div class="row">
-            <h1 class="display-1">De programadores para programadores</h1>
+    <div class="container" style="padding-top: 250px;">
+        <div>
+            <h1 class="mat-display-3 text-center">"De programadores para programadores"</h1>
         </div>
         <div class="row pt-5">
-            <div class="col-lg-4 text-justify">
-                <h2>A Code UP</h2>
+            <div class="col-lg-6 text-justify mr-5">
+                <h2>A CODE UP</h2>
                 <p>
                 No ano de 2018, cinco estudantes de Ciência da Computação decidiram
                 se juntar, para fazer o que ia ser um dos melhores TCCs já visto 
@@ -24,84 +24,17 @@
                 e um deles, Gustavo Ortiz, nunca mais foi visto, desde a apresentação do TCC...
                 </p>
             </div>
-            <div class="col-lg-8">
-                <h2>IA 2100</h2>
-                <div class="rounded-lg card">
-                    <img class="ia" src="../../../assets/images/Banner.jpg" alt="IA 2100">
-                </div>
-            </div>
-        </div>
-        <div class="row pt-5 justify-content-center">
-            <div class="col">
-                <h2>Integrantes</h2>
-            </div>
-            <div class="w-100"></div>
-            <div class="col-lg-3 text-justify rounded-lg card px-0 pt-3 m-3">
-                <img class="ml-5 card-img-top card-position-image" 
-                    src="../../../assets/images/integrantes/deivison.png" 
-                    alt="description">
-                <div class="card-body">
-                    <h5 class="card-title">Deivison Julio</h5>
-                    <p class="card-text">
-                        Desenvolvedor na plataforma .NET, possui
-                        aproximadamente 10 anos na área, mas não se
-                        limitando a apenas esta plataforma.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 text-justify rounded-lg card px-0 pt-3 m-3">
-                <img class="ml-5 card-img-top card-position-image" 
-                    src="../../../assets/images/integrantes/douglas.png" 
-                    alt="description">
-                <div class="card-body">
-                    <h5 class="card-title">Douglas Miler</h5>
-                    <p class="card-text">
-                        Desenvolvedor apaixonado pela linguagem Java, já trabalhou
-                        com automações de processos e APIs RESTful. Agora atua
-                        como desenvolvedor Full Stack, utilizando Angular.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 text-justify rounded-lg card px-0 pt-3 m-3">
-                <img class="ml-5 card-img-top card-position-image" 
-                    src="../../../assets/images/integrantes/flavio.png" 
-                    alt="description">
-                <div class="card-body">
-                    <h5 class="card-title">Flávio Vaz</h5>
-                    <p class="card-text">
-                        Perseguidor de boas práticas e apaixonado por 
-                        Design Patterns, atua no mercado de Java e Angular há mais
-                        de 2 anos, visando sempre o bom código.
-                    </p>
-                </div>
-            </div>
-
-            <div class="w-100"></div>
-            <div class="col-lg-3 text-justify rounded-lg card px-0 pt-3 m-3">
-                <img class="ml-5 card-img-top card-position-image" 
-                    src="../../../assets/images/integrantes/gustavo.png" 
-                    alt="description">
-                <div class="card-body">
-                    <h5 class="card-title">Gustavo Ortiz</h5>
-                    <p class="card-text">
-                        Voltado principalmente à área de pedir colas e respostas,
-                        possui certificados nas mais diversas plataformas de ensino,
-                        e atuou como desenvolvedor Android.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-3 text-justify rounded-lg card px-0 pt-3 m-3">
-                <img class="ml-5 card-img-top card-position-image" 
-                    src="../../../assets/images/integrantes/mateus.png" 
-                    alt="description">
-                <div class="card-body">
-                    <h5 class="card-title">Matheus da Silva</h5>
-                    <p class="card-text">
-                        Odiado por muitos e amado por outros, possui
-                        ótimas ideias quando se fala
-                        em beleza da camada de visualização, o que faz dele um crítico
-                        que divide opiniões. 
-                    </p>
+            <div class="col-lg-5">
+                <h2 class="w-100 text-start">AUTORES</h2>
+                <div class="row">
+                    <blog-person-card *ngFor="let card of cards"
+                        [name]="card.name"
+                        [position]="card.position"
+                        [avatarSrc]="card.avatarSrc"
+                        [avatarAlt]="card.avatarAlt"
+                        [resume]="card.resume"
+                        [linkedin]="card.linkedin"
+                    ></blog-person-card>
                 </div>
             </div>
         </div>

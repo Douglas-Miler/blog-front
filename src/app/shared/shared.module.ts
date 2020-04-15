@@ -11,8 +11,8 @@ import { SharedComponent } from './shared/shared.component';
     ],
     imports:[
       CommonModule,
-      FooterModule,
-      NavbarModule
+      NavbarModule,
+      FooterModule
     ],
     exports:[
       SharedComponent
