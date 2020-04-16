@@ -1,3 +1,10 @@
+#ia{
+    object-fit: cover;
+    object-position: center;
+    height: 600px;
+    width: 100%;
+}
+
 @media (max-width: 974px){
     #codeup{
         margin-right: 0px !important;
