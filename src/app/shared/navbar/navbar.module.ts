@@ -4,14 +4,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { NgbNavModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { SmallMessageComponent } from './small-message/small-message.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SmallMessageComponent
+    SmallMessageComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +22,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     NgbNavModule,
     NgbModalModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [
     NavbarComponent

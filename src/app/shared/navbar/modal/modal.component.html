@@ -1,0 +1,52 @@
+<article>
+    <header class="modal-header">
+        <h1 mat-dialog-title>Entrar</h1>
+        <button mat-dialog-close type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </header>
+    <main class="modal-body">
+        <form [formGroup] = "loginForm" (submit)="login()">
+        
+        <mat-form-field class="w-100 form-group">
+            <mat-label>E-mail</mat-label>
+            <input
+            #emailInput 
+            cdkFocusInitial
+            matInput
+            formControlName="email" 
+            type="email" 
+            class="form-control" 
+            id="inputEmail" 
+            aria-describedby="emailHelp"
+            placeholder="Ex. fulano@example.com">
+            <mat-error *ngIf="loginForm.get('email').errors?.required">
+                Email é <strong>obrigatório</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <br/>
+
+        <mat-form-field class="w-100 form-group">
+            <mat-label>Senha</mat-label>
+            <input 
+            matInput
+            formControlName="password" 
+            type="password" 
+            class="form-control" 
+            id="inputPassword">
+            <mat-error *ngIf="loginForm.get('password').errors?.required">
+                Senha é <strong>obrigatória</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <footer class="modal-footer">
+            <button mat-button mat-dialog-close >Fechar</button>
+            <button
+                mat-raised-button [disabled]="loginForm.invalid"
+                color="primary">Entrar
+            </button>
+        </footer>
+        </form>
+    </main>
+</article>
