@@ -7,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardItemComponent implements OnInit {
 
-  @Input() description='';
-  @Input() url='';
+  @Input() introduction='';
+  @Input() imageDescription='';
+  @Input() image='';
   @Input() title='';
+  @Input() userName='';
+  @Input() userPosition='';
 
   constructor() { }
 

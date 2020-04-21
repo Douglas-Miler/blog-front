@@ -1,7 +1,10 @@
 export interface Card {
 
-    description: string
+    introduction: string,
+    imageDescription: string,
     title: string
-    url: string
+    image: string,
+    userName: string,
+    userPosition: string
 
 }

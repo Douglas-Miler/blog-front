@@ -40,7 +40,7 @@ export class ModalComponent implements OnInit {
         .subscribe(
           () => {
             this.dialogRef.close();
-            this.router.navigate(['not-found']);
+            this.router.navigate(['/author']);
           },
           err => {
             console.log(err);

@@ -5,6 +5,7 @@ import { CardResolver } from './home/card/card-resolver';
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
 import { HomeComponent } from './home/home/home.component';
 import { AboutComponent } from './about/about/about.component';
+import { AuthorComponent } from './author/author/author.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'about', 
         component: AboutComponent
+    },
+    {
+        path: 'author', 
+        component: AuthorComponent
     },
     {
         path: '**', 
