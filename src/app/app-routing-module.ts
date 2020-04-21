@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './core/auth.guard';
 import { CardResolver } from './home/card/card-resolver';
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
 import { HomeComponent } from './home/home/home.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
         component: HomeComponent, 
         resolve: {
             cards: CardResolver
-        }
+        },
+        canActivate: [AuthGuard]
     },
     {
         path: 'about', 

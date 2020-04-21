@@ -5,6 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { NgbNavModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
 import { SmallMessageComponent } from './small-message/small-message.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,7 +24,8 @@ import { ModalComponent } from './modal/modal.component';
     NgbModalModule,
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent

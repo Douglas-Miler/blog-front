@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,6 +19,7 @@ import { ContentComponent } from './content/content.component';
         ContentComponent
     ],
     imports:[
+        CommonModule,
         NavbarModule,
         FooterModule,
         MatButtonModule,

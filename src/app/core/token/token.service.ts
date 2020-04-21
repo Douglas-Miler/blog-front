@@ -18,4 +18,8 @@ export class TokenService{
     hasToken(): boolean {
         return !!this.getToken();
     }
+
+    removeToken() {
+        window.localStorage.removeItem(KEY);
+    }
 }
