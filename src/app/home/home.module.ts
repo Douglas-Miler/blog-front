@@ -8,8 +8,6 @@ import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { HomeComponent } from './home/home.component';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent
@@ -17,6 +15,7 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     HttpClientModule,
+
     SharedModule,
     CarouselModule,
     CardModule,

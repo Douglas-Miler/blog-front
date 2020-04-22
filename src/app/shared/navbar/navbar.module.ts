@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import { NgbNavModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
+import {MatDialogModule} from '@angular/material/dialog';
 
-import { SmallMessageComponent } from './small-message/small-message.component';
+import { ModalModule } from './modal/modal.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
-    SmallMessageComponent,
-    ModalComponent
+    NavbarComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    ModalModule,
+
     NgbNavModule,
-    NgbModalModule,
     MatButtonModule,
-    MatInputModule,
     MatDialogModule,
+
     RouterModule
   ],
   exports: [

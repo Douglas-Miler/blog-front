@@ -1,8 +1,8 @@
-import { ModalComponent } from './../modal/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { MatDialog } from '@angular/material/dialog';
+
+import { ModalComponent } from '../modal/modal/modal.component';
 
 @Component({
   selector: 'blog-navbar',

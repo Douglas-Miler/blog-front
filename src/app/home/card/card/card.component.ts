@@ -3,8 +3,8 @@ import { Component, OnInit, } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
-import { CardService } from './card.service';
-import { Card } from './card';
+import { CardService } from '../card-service/card.service';
+import { Card } from '../card-service/card';
 
 @Component({
   selector: 'blog-card',

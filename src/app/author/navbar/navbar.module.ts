@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
-    ModalComponent
+    NavbarComponent
   ],
   imports: [
     NgbNavModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent

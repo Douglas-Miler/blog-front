@@ -18,8 +18,8 @@ import { AppComponent } from './app.component';
     
     BrowserAnimationsModule,
     
-    AboutModule,
     HomeModule,
+    AboutModule,
     AuthorModule
   ],
   providers: [],

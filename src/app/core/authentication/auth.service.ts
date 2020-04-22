@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
-import { Token } from './token/token';
-import { UserService } from './user/user.service';
+import { Token } from '../token/token';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AuthService {
   authenticate(email: string, password: string){
     return this.http
       .post<Token>(
-        'https://web-api-blog.herokuapp.com/signin',
+        'http://localhost:8080/signin',
         {email: email, password: password}, 
         { observe: 'response'}
       )

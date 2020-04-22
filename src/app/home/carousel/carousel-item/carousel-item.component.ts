@@ -10,10 +10,6 @@ export class CarouselItemComponent implements OnInit{
     @Input() src: string = '';
     @Input() description: string = '';
 
-    constructor() {
-
-    }
-
     ngOnInit(): void {
 
     }

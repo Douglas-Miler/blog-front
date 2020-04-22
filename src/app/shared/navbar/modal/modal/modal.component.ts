@@ -1,9 +1,9 @@
-import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 
-import { AuthService } from './../../../core/auth.service';
+import { AuthService } from '../../../../core/authentication/auth.service';
 
 @Component({
   selector: 'app-modal',
