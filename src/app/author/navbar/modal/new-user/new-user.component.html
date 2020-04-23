@@ -1,0 +1,43 @@
+<article>
+    <header>
+        <h1 mat-dialog-title>Olá</h1>
+    </header>
+    <main>
+        <form>
+            <mat-dialog-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input 
+                        matInput
+                        required
+                        type="text">
+                    <mat-error>Campo obrigatório</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>E-mail</mat-label>
+                    <input 
+                        matInput
+                        type="email">
+                    <mat-error>Campo obrigatório</mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input 
+                        matInput
+                        [type] = "hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide">
+                            <mat-icon>
+                                {{hide ? 'visibility' : 'visibility_off'}}
+                            </mat-icon>
+                        </button>
+                    <mat-error>Campo obrigatório</mat-error>
+                </mat-form-field>
+            </mat-dialog-content>
+            <mat-dialog-actions>
+
+            </mat-dialog-actions>
+        </form>
+    </main>
+</article>
