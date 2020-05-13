@@ -1,28 +1,28 @@
-<div class="container mt-5">
-  <h2 class="text-center border-bottom mb-0">
-    POSTS MAIS RECENTES
-  </h2>
+<div class="container pt-5">
+    <h2 class="text-center border-bottom mb-0">
+        POSTS MAIS RECENTES
+    </h2>
 </div>
 <div class="container-fluid">
-  <section class="row justify-content-center">
-    <blog-card-item class="m-4 col-lg-3"
-      *ngFor="let card of cards"
-      [introduction]="card.introduction"
-      [userName]="card.userName"
-      [userPosition]="card.userPosition"
-      [image]="card.image" 
-      [imageDescription]="card.imageDescription"
-      [title]="card.title">
-    </blog-card-item>
-  </section>
+    <section class="row justify-content-center">
+        <blog-card-item class="m-4 col-lg-3"
+            *ngFor="let card of cards"
+            [introduction]="card.introduction"
+            [userName]="card.userName"
+            [userPosition]="card.userPosition"
+            [image]="card.image" 
+            [imageDescription]="card.imageDescription"
+            [title]="card.title">
+        </blog-card-item>
+    </section>
 </div>
 <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <button mat-button (click)="loadLess()">Voltar</button>
-    </li>
-    <li class="page-item ml-2">
-      <button mat-raised-button (click)="loadMore()">Próximo</button>
-    </li>
-  </ul>
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <button mat-button (click)="loadLess()">Voltar</button>
+        </li>
+        <li class="page-item ml-2">
+            <button mat-raised-button (click)="loadMore()">Próximo</button>
+        </li>
+    </ul>
 </nav>

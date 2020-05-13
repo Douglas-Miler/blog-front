@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/core/user/user';
+import { JWTPayload } from 'src/app/core/user/jwt-payload';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { UserService } from './../../core/user/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user$: Observable<User>;
+  user$: Observable<JWTPayload>;
 
   constructor(
     private userService: UserService) {

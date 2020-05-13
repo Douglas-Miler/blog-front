@@ -2,7 +2,7 @@
   <nav class="fixed-top container pt-5" style="background-color: rgba(0,0,0,0.0);">
     <ul ngbNav #nav="ngbNav" class="row align-items-center">
       <li class="col-sm">
-        <a [routerLink]="['']">
+        <a [routerLink]="''">
           <img 
             class="img-fluid logo" 
             src="../../../assets/images/logo/LogoEmpresaLight.png" 
@@ -12,10 +12,10 @@
       <div class="col-sm p-0">
         <div class="row justify-content-center m-0">
           <li>
-            <button mat-button (click) = "gotToAboutPage()">CODE UP</button>
+            <button mat-button [routerLink]="'/about'">CODE UP</button>
           </li>
           <li class="ml-5">
-            <button (click) = "openLoginModal()" mat-raised-button>ENTRAR</button>
+            <button mat-raised-button [routerLink]="'/signin'">ENTRAR</button>
           </li>
         </div>
       </div>

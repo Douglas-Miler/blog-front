@@ -1,16 +1,14 @@
 <article>
-    <header class="modal-header">
-        <h1 mat-dialog-title>Entrar</h1>
-        <button mat-dialog-close type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <header>
+        <h1 class="mat-display-1">Entrar</h1>
     </header>
-    <main class="modal-body">
+    <main class="">
         <form [formGroup] = "loginForm" (submit)="login()">
         
         <mat-form-field class="w-100 form-group">
             <mat-label>E-mail</mat-label>
             <input
+            autofocus
             #emailInput 
             cdkFocusInitial
             matInput
@@ -40,8 +38,7 @@
             </mat-error>
         </mat-form-field>
 
-        <footer class="modal-footer">
-            <button mat-button mat-dialog-close >Fechar</button>
+        <footer class="">
             <button
                 mat-raised-button [disabled]="loginForm.invalid"
                 color="primary">Entrar

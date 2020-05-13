@@ -1,15 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatDialogRef } from '@angular/material/dialog';
 
-import { AuthService } from '../../../../core/authentication/auth.service';
+import { AuthService } from './../../core/authentication/auth.service';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html'
+    selector:'blog-form-login',
+    templateUrl:'./form-login.component.html',
+    styleUrls: []
+    
 })
-export class ModalComponent implements OnInit {
+export class FormLoginComponent implements OnInit {
 
   loginForm: FormGroup;
   @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
@@ -17,16 +18,13 @@ export class ModalComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router,
-    public dialogRef: MatDialogRef<ModalComponent>) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.dialogRef.updateSize('500px');
-    this.dialogRef.updatePosition({top:'200px'});
   }
 
   login() {
@@ -39,7 +37,6 @@ export class ModalComponent implements OnInit {
         .authenticate(email, password)
         .subscribe(
           () => {
-            this.dialogRef.close();
             this.router.navigate(['/author']);
           },
           err => {

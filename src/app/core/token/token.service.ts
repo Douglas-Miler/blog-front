@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import * as jwt_decode from 'jwt-decode';
+
+import { JWTPayload } from '../user/jwt-payload';
+
 const KEY: string = 'authToken';
 
 @Injectable({
@@ -16,10 +20,26 @@ export class TokenService{
     }
 
     hasToken(): boolean {
-        return !!this.getToken();
+        const token: string = this.getToken();
+        if(token!= null && token.length > 0){
+            return this.isValidToken();
+        }
+        return false;
     }
 
     removeToken() {
         window.localStorage.removeItem(KEY);
+    }
+
+    private isValidToken() : boolean{
+        const token: string = this.getToken();
+        const jwtPayload: JWTPayload = jwt_decode(token) as JWTPayload;
+        const tokenExpirationUnixDate : number = jwtPayload.exp;
+        const currentUnixDate : number = Math.floor(new Date().getTime()/1000);
+
+        if(currentUnixDate <= tokenExpirationUnixDate)
+            return true;
+
+        return false;
     }
 }

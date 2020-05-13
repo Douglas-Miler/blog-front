@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
-
-import { ModalComponent } from '../modal/modal/modal.component';
 
 @Component({
   selector: 'blog-navbar',
@@ -11,20 +8,10 @@ import { ModalComponent } from '../modal/modal/modal.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(
-    private router: Router,
-    private dialog: MatDialog) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
-  }
-
-  openLoginModal() {
-    this.dialog.open(ModalComponent);
-  }
-
-  gotToAboutPage(){
-    this.router.navigate(['/about']);
   }
 
 }
