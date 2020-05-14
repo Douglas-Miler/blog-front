@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardItemComponent implements OnInit {
 
+  @Input() id="";
   @Input() introduction='';
   @Input() imageDescription='';
   @Input() image='';
@@ -14,9 +16,13 @@ export class CardItemComponent implements OnInit {
   @Input() userName='';
   @Input() userPosition='';
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
+  seeArticle(id: string){
+    this.router.navigate(['/article/'+id]);
+  }
 }

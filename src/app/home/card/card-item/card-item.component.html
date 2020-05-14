@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card [id]="id">
   <mat-card-header>
     <mat-card-title>{{userName}}</mat-card-title>
     <mat-card-subtitle>{{userPosition}}</mat-card-subtitle>
@@ -11,6 +11,6 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">DESCUBRA!</button>
+    <button mat-raised-button color="primary" (click)="seeArticle(id)">DESCUBRA!</button>
   </mat-card-actions>
 </mat-card>

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 
-import { NewUserComponent } from './../modal/new-user/new-user.component';
 import { UserService } from './../../../core/user/user.service';
 
 @Component({
@@ -14,15 +12,10 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router,
-    private modal: MatDialog) { }
+    private router: Router) { }
 
   ngOnInit(): void {
 
-  }
-
-  openModal() {
-    this.modal.open(NewUserComponent);
   }
 
   logout(){

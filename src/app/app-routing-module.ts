@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about/about.component';
 import { AuthorComponent } from './author/author/author.component';
 import { LoginPageComponent } from './login/login-page/login-page.component';
 import { FormLoginComponent } from './login/form-login/form-login.component';
+import { ArticlePageComponent } from './article/article-page/article-page.component';
 
 const routes: Routes = [
     {
@@ -27,6 +28,10 @@ const routes: Routes = [
         path: 'author', 
         component: AuthorComponent,
         canActivate: [AuthorGuard],
+    },
+    {
+        path: 'article/:id', 
+        component: ArticlePageComponent
     },
     {
         path: 'signin', 
