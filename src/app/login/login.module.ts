@@ -1,4 +1,5 @@
-import { SharedModule } from './../shared/shared.module';
+import { FooterModule } from './../shared/footer/footer.module';
+import { NavbarModule } from './../shared/navbar/navbar.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
@@ -20,7 +21,9 @@ import { FormLoginComponent } from './form-login/form-login.component';
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
-        SharedModule,
+
+        NavbarModule,
+        FooterModule,
         
         ReactiveFormsModule,
         RouterModule,

@@ -3,3 +3,8 @@
     object-position: 50%;
     height: 750px;
 }
+
+#container{
+    padding-top: 200px;
+    min-height: 100%;
+}

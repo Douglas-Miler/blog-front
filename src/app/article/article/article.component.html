@@ -1,0 +1,27 @@
+<article>
+    <h1 class="mat-display-3 mb-2">{{title}}</h1>
+    <h2>{{secondaryTitle}}</h2>
+
+    <div class="row">
+        <div class="col-6">
+            <small>{{category}}</small>
+        </div>
+        <div class="col-6 text-right">
+            <small>{{articleUpdateUnixTime | toDate}}</small>
+        </div>
+    </div>
+
+    <summary class="mt-5">
+        <h3 style="font-weight: bold;">Introdução</h3>
+        <p class="text-justify">
+            {{introduction}}
+        </p>
+    </summary>
+
+    <main class="mt-5">
+        <h3 style="font-weight: bold;">{{title}}</h3>
+        <p class="text-justify">
+            {{content}}
+        </p>
+    </main>
+</article>

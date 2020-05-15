@@ -1,0 +1,26 @@
+<article>
+    <h1 class="mb-2">Sobre o Autor:</h1>
+    <mat-card>
+        <mat-card-header>
+            <img mat-card-avatar [src]="profileImage">
+            <mat-card-title>
+                <h2 class="mb-1">{{name}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle>
+                {{position}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <main class="text-justify pt-2">
+            <mat-card-content class="mb-1">
+                <p class="mb-1">
+                    {{resume}}
+                </p>
+                <h2>
+                    <a class="badge badge-dark" target="_blank" [href]="linkedInURL">
+                    <i class="fa fa-linkedin"></i>
+                    </a>
+                </h2>
+            </mat-card-content>
+        </main>
+    </mat-card>
+</article>

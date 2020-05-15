@@ -1,23 +1,19 @@
-import { ArticleService } from './../article-service/article.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../article-service/article';
-import { Observable } from 'rxjs';
 
 @Component({
-    templateUrl: './article-page.component.html'
+    templateUrl: './article-page.component.html',
+    styleUrls: ['./article-page.component.css']
 })
 export class ArticlePageComponent implements OnInit{
-    
-    article$: Observable<Article>;
 
-    constructor(
-        private activatedRoute: ActivatedRoute, 
-        private articleService: ArticleService) {}
+    article: Article;
+
+    constructor(private activatedRoute: ActivatedRoute) {}
     
     ngOnInit(): void {
-        const id: string = this.activatedRoute.snapshot.params.id;
-        this.article$ = this.articleService.getArticle(id);
+        this.article = this.activatedRoute.snapshot.data['article'];
     }
 
 }

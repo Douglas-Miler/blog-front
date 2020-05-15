@@ -1,9 +1,10 @@
+import { FooterModule } from './../shared/footer/footer.module';
+import { NavbarModule } from './../shared/navbar/navbar.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 
 import { PersonCardComponent } from './person-card/person-card.component';
-import { SharedModule } from './../shared/shared.module';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { AboutComponent } from './about/about.component';
   ],
   imports: [
     CommonModule,
-    SharedModule,
+    NavbarModule,
+    FooterModule,
     MatCardModule
   ]
 })
