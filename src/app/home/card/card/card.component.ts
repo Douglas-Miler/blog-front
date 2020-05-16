@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -10,9 +10,9 @@ import { Card } from '../card-service/card';
   selector: 'blog-card',
   templateUrl: './card.component.html'
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnChanges {
 
-  cards: Card[] = [];
+  @Input() cards: Card[] = [];
   hasMore: boolean = true;
   currentPage: number = 0;
 
@@ -21,9 +21,14 @@ export class CardComponent implements OnInit {
     private cardService: CardService,
     private toastr: ToastrService
   ) {}
+
   
   ngOnInit(): void {
     this.cards = this.activatedRoute.snapshot.data['cards'];
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+      console.log('mudou');
   }
 
   loadMore(){
