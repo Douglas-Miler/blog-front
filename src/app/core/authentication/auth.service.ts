@@ -19,7 +19,7 @@ export class AuthService {
   authenticate(email: string, password: string){
     return this.httpClient
       .post<Token>(
-        'http://localhost:8080/signin',
+        'https://web-api-blog.herokuapp.com/signin',
         {email: email, password: password}, 
         { observe: 'response'}
       )
