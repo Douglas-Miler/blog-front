@@ -33,7 +33,9 @@ export class SearchComponent implements OnInit{
         this.searchForm.get('search').setValue('');
         this.cardService
             .listSearchedCardsPaginated(0, searchedText)
-            .subscribe(cards => this.onSubmit.emit(cards));
+            .subscribe(cards => {
+                if(cards.length != 0) this.onSubmit.emit(cards)
+            });
     }
 
 }

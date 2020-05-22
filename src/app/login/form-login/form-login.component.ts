@@ -31,8 +31,6 @@ export class FormLoginComponent implements OnInit {
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
 
-    console.log(email, password);
-
     this.authService
         .authenticate(email, password)
         .subscribe(

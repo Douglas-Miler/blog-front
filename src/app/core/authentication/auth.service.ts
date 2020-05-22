@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
 
@@ -10,10 +10,14 @@ import { UserService } from '../user/user.service';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private userService: UserService) { }
+  private httpClient: HttpClient;
+
+  constructor(handler: HttpBackend, private userService: UserService) {
+    this.httpClient = new HttpClient(handler);
+   }
 
   authenticate(email: string, password: string){
-    return this.http
+    return this.httpClient
       .post<Token>(
         'http://localhost:8080/signin',
         {email: email, password: password}, 
