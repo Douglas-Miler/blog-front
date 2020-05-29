@@ -40,6 +40,7 @@ export class TokenService{
         if(currentUnixDate <= tokenExpirationUnixDate)
             return true;
 
+        this.removeToken();
         return false;
     }
 }

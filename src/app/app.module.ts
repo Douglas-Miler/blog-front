@@ -26,7 +26,6 @@ import { ArticleModule } from './article/article.module';
     LoginModule,
     ArticleModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

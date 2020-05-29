@@ -1,67 +1,108 @@
 <main class="container" style="padding-bottom: 100px;">
-    <form>
+    <form [formGroup]="articleForm" (submit)="save()">
         <div class="row">
+            
             <div class="col-md-2"></div>
             <div class="col-12 col-md-4">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Categoria</mat-label>
-                    <mat-select required="true">
+                    <mat-select 
+                        required="true"
+                        formControlName="category">
                         <mat-option value="primary">Programação</mat-option>
                         <mat-option value="accent">Front-End</mat-option>
                         <mat-option value="warn">DevOps</mat-option>
                     </mat-select>
+                    <mat-error *ngIf="articleForm.get('category').errors?.required">Escolha uma categoria</mat-error>
                 </mat-form-field>
             </div>
             <div class="col-md-4"></div>
+
             <div class="w-100"></div>
+            
             <div class="col-md-2"></div>
-            <div class="col-md-8 col-12">
+            <div class="col-md-8 col-12 mt-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Título</mat-label>
-                    <input required="true" type="text" matInput placeholder="Introdução à POO">
+                    <input
+                        #title 
+                        formControlName="title"
+                        required="true" 
+                        type="text"
+                        maxlength="100" 
+                        matInput 
+                        placeholder="Introdução à POO">
+                    <mat-error *ngIf="articleForm.get('title').errors?.required">Insira um título</mat-error>
+                    <mat-error *ngIf="articleForm.get('title').errors?.maxlength">O título deve conter até 100 caracteres</mat-error>
+                    <mat-hint align="end">{{title.value.length}} / {{title.maxLength}}</mat-hint>
                 </mat-form-field>
             </div>
             <div class="col-md-2"></div>
+            
             <div class="w-100"></div>
+            
             <div class="col-md-2"></div>
-            <div class="col-md-8 col-12">
+            <div class="col-md-8 col-12 mt-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Subtítulo</mat-label>
-                    <input required="true" type="text" matInput placeholder="Aprenda os três pilares deste paradigma de programação">
+                    <input
+                        #secondaryTitle 
+                        formControlName="secondaryTitle"
+                        required="true" 
+                        type="text" 
+                        maxlength="100"
+                        matInput 
+                        placeholder="A prenda os três pilares deste paradigma de programação">
+                    <mat-error *ngIf="articleForm.get('secondaryTitle').errors?.required">Insira um subtítulo</mat-error>
+                    <mat-error *ngIf="articleForm.get('secondaryTitle').errors?.maxlength">O subtítulo deve conter até 100 caracteres</mat-error>
+                    <mat-hint align="end">{{secondaryTitle.value.length}} / {{secondaryTitle.maxLength}}</mat-hint>
                 </mat-form-field>
             </div>
             <div class="col-md-2"></div>
+            
             <div class="w-100"></div>
+            
             <div class="col-md-2"></div>
-            <div class="col-md-8 col-12">
+            <div class="col-md-8 col-12 mt-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Introdução</mat-label>
-                    <textarea 
+                    <textarea
+                        #introduction
+                        formControlName="introduction" 
+                        maxlength="1000"
                         required="true"
                         matInput 
                         cdkTextareaAutosize
                         cdkAutosizeMinRows="5"
                         cdkAutosizeMaxRows="5"></textarea>
+                    <mat-hint align="end">{{introduction.value.length}} / {{introduction.maxLength}}</mat-hint>
+                    <mat-error *ngIf="articleForm.get('introduction').errors?.required">Escreva uma breve introdução</mat-error>
+                    <mat-error *ngIf="articleForm.get('introduction').errors?.maxlength">A introdução deve conter até 1000 caracteres</mat-error>
                 </mat-form-field>
             </div>
             <div class="col-md-2"></div>
+            
             <div class="w-100"></div>
+            
             <div class="col-md-2"></div>
-            <div class="col-md-8 col-12">
+            <div class="col-md-8 col-12 mt-3">
                 <mat-form-field class="w-100" appearance="outline">
                     <mat-label>Conteúdo</mat-label>
                     <textarea
+                        formControlName="content"
                         required="true"
                         matInput 
                         cdkTextareaAutosize
                         cdkAutosizeMinRows="10"
                         cdkAutosizeMaxRows="20"></textarea>
+                    <mat-error *ngIf="articleForm.get('content').errors?.required">Escreve o que você estudou!</mat-error>
                 </mat-form-field>
             </div>
             <div class="col-md-2"></div>
             <div class="col-12">
                 <div class="row justify-content-end">
                     <button 
+                        [disabled]=articleForm.invalid
                         type="submit" 
                         class="ml-2 mr-3" 
                         mat-raised-button
@@ -69,5 +110,5 @@
                 </div>
             </div>
         </div>
-  </form>
+    </form>
 </main>

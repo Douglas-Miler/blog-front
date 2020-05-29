@@ -13,6 +13,6 @@ export class ArticleService{
     }
 
     getArticle(id: string) : Observable<Article> {
-        return this.httpClient.get<Article>('https://web-api-blog.herokuapp.com/article/' + id);
+        return this.httpClient.get<Article>('http://localhost:8080/article/' + id);
     }
 }
