@@ -11,6 +11,6 @@ export class ArticleComponent {
     @Input() category: string;
     @Input() introduction: string;
     @Input() content: string;
-    @Input() articleUpdateUnixTime: number;
+    @Input() creationDate: string;
 
 }

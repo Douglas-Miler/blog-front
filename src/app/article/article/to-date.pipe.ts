@@ -7,9 +7,9 @@ export class ToDatePipe implements PipeTransform{
     
     transform(articleUpdateUnixTime: number) {
         const date: Date = new Date(articleUpdateUnixTime*1000);
-        const day: number = date.getUTCDate();
-        const month: number = date.getUTCMonth();
-        const year: number = date.getUTCFullYear();
+        const day: number = date.getDate();
+        const month: number = date.getMonth();
+        const year: number = date.getFullYear();
 
         return day + '/' + month + '/' + year;
     }

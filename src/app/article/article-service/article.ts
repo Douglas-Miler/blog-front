@@ -4,7 +4,7 @@ export interface Article{
     category: string;
     introduction: string;
     content: string;
-    articleUpdateUnixTime: number;
+    creationDate: string
     name: string;
     position: string;
     resume: string;
