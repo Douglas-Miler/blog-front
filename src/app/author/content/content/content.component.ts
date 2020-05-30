@@ -1,7 +1,8 @@
-import { ArticleForm } from './../../author-service/article-form';
-import { AuthorService } from './../../author-service/author.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+import { AuthorService } from './../../author-service/author.service';
 
 @Component({
   selector: 'blog-content',
@@ -10,10 +11,12 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ContentComponent implements OnInit {
 
   articleForm: FormGroup;
+  image: File;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authorService: AuthorService
+    private authorService: AuthorService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -37,17 +40,32 @@ export class ContentComponent implements OnInit {
           Validators.maxLength(1000)
         ]
       ],
-      content: ['', Validators.required]
+      content: ['', Validators.required],
+      image:['', Validators.required]
     })
   }
 
   save(){
     this.authorService
-      .save(this.articleForm.getRawValue())
+      .saveImage(this.image)
       .subscribe(() => {
-        console.log('salvei');
+        this.authorService.saveForm({
+          title: this.articleForm.get('title').value,
+          secondaryTitle: this.articleForm.get('secondaryTitle').value,
+          category: this.articleForm.get('category').value,
+          introduction: this.articleForm.get('introduction').value,
+          content: this.articleForm.get('content').value,
+          userId: 1,
+          creationDate: new Date()
+        }).subscribe(() => {
+            this.router.navigate(['/success']);
+          }, err => {
+              alert('Erro! Consulte o console para mais informações')
+              console.log(err);
+            });
       },
       err => {
+        alert('Erro! Consulte o console para mais informações')
         console.log(err);
       });
   }

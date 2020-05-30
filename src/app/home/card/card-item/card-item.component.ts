@@ -1,5 +1,8 @@
+import { environment } from './../../../core/environments/environment';
 import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
+
+const CLOUD = environment.apiUrl;
 
 @Component({
   selector: 'blog-card-item',

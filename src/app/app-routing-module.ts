@@ -12,6 +12,7 @@ import { LoginPageComponent } from './login/login-page/login-page.component';
 import { FormLoginComponent } from './login/form-login/form-login.component';
 import { ArticlePageComponent } from './article/article-page/article-page.component';
 import { ArticleResolver } from './article/article-service/article-resolver';
+import { UploadSucessComponent } from './author/upload-success/upload-success/upload-success.component';
 
 const routes: Routes = [
     {
@@ -47,6 +48,10 @@ const routes: Routes = [
                 component: FormLoginComponent
             }
         ]
+    },
+    {
+        path: 'success', 
+        component: UploadSucessComponent
     },
     {
         path: '**', 

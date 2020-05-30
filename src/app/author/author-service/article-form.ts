@@ -4,4 +4,6 @@ export interface ArticleForm{
     category: string;
     introduction: string;
     content: string;
+    userId: number;
+    creationDate: Date;
 }

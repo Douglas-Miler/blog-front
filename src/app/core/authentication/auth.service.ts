@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
@@ -19,7 +20,7 @@ export class AuthService {
   authenticate(email: string, password: string){
     return this.httpClient
       .post<Token>(
-        'http://localhost:8080/signin',
+        environment.apiUrl + '/signin',
         {email: email, password: password}, 
         { observe: 'response'}
       )

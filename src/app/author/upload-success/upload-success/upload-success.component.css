@@ -1,13 +1,17 @@
-header {
-    padding-top: 250px;
+#image{
+    object-position: center;
+    object-fit: cover;
+    height: 250px;
 }
 
-#greeting {
-    animation: fadein 3s;
-    -moz-animation: fadein 3s; /* Firefox */
-    -webkit-animation: fadein 3s; /* Safari and Chrome */
-    -o-animation: fadein 3s; /* Opera */
+#image-container{
+    animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
+    padding-top: 180px;
 }
+
 @keyframes fadein {
     from {
         opacity:0;
