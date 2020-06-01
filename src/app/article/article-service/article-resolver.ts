@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 
 import { ArticleService } from './article.service';
 import { Article } from './article';
-import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'

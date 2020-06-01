@@ -1,7 +1,7 @@
-import { CardService } from './../card-service/card.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 
+import { CardService } from './../card-service/card.service';
 import { Card } from './../card-service/card';
 
 @Component({
@@ -10,7 +10,7 @@ import { Card } from './../card-service/card';
 })
 export class SearchComponent implements OnInit{
 
-    @Output() onSubmit = new EventEmitter<Card[]>();
+    @Output() onSubmit = new EventEmitter<any>();
     searchForm: FormGroup;
     @ViewChild('searchField') searchField: ElementRef<HTMLInputElement>;
 
@@ -34,7 +34,7 @@ export class SearchComponent implements OnInit{
         this.cardService
             .listSearchedCardsPaginated(0, searchedText)
             .subscribe(cards => {
-                if(cards.length != 0) this.onSubmit.emit(cards)
+                if(cards.length != 0) this.onSubmit.emit({cards, searchedText});
             });
     }
 

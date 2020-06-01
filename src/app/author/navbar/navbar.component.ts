@@ -1,25 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserService } from './../../../core/user/user.service';
+import { TokenService } from '../../core/token/token.service';
 
 @Component({
   selector: 'blog-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   constructor(
-    private userService: UserService,
+    private tokenService: TokenService,
     private router: Router) { }
 
-  ngOnInit(): void {
-
-  }
-
   logout(){
-    this.userService.logout();
+    this.tokenService.removeToken();
     this.router.navigate(['']);
   }
 }

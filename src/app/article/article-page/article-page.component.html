@@ -1,27 +1,27 @@
 <blog-navbar></blog-navbar>
-    <div class="container" style="padding-top: 250px;" 
-        id="container" *ngIf="article">
-        <div class="row">
-            <div class="col-md-7">
-                <blog-article
-                    [title]="article.title"
-                    [secondaryTitle]="article.secondaryTitle"
-                    [category]="article.category"
-                    [introduction]="article.introduction"
-                    [content]="article.content"
-                    [creationDate]="article.creationDate"
-                ></blog-article>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-4">
-                <blog-about-author
-                    [name]="article.name"
-                    [position]="article.position"
-                    [resume]="article.resume"
-                    [linkedInURL]="article.linkedInURL"
-                    [profileImage]="article.profileImage"
-                ></blog-about-author>
-            </div>
+<div class="container" style="padding-top: 250px;" 
+    id="container" *ngIf="article">
+    <div class="row">
+        <div class="col-md-7">
+            <blog-article
+                [title]="article.title"
+                [secondaryTitle]="article.secondaryTitle"
+                [category]="article.category"
+                [introduction]="article.introduction"
+                [content]="article.content"
+                [creationDate]="article.creationDate"
+            ></blog-article>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <blog-about-author
+                [name]="article.name"
+                [position]="article.position"
+                [resume]="article.resume"
+                [linkedInURL]="article.linkedInURL"
+                [profileImage]="article.profileImage"
+            ></blog-about-author>
         </div>
     </div>
+</div>
 <blog-footer></blog-footer>

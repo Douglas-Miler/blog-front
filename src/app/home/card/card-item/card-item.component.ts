@@ -1,15 +1,12 @@
-import { environment } from './../../../core/environments/environment';
 import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
-
-const CLOUD = environment.apiUrl;
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'blog-card-item',
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.css']
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
 
   @Input() id="";
   @Input() introduction='';
@@ -20,10 +17,6 @@ export class CardItemComponent implements OnInit {
   @Input() userPosition='';
 
   constructor(private router: Router) { }
-
-  ngOnInit(): void {
-    
-  }
 
   seeArticle(id: string){
     this.router.navigate(['/article/'+id]);

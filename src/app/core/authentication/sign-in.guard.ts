@@ -1,8 +1,9 @@
-import { UserService } from '../user/user.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } 
 from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { TokenService } from './../token/token.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,9 +11,8 @@ import { Observable } from 'rxjs';
 export class SignInGuard implements CanActivate{
 
     constructor(
-        private userService: UserService,
+        private tokenService: TokenService,
         private router: Router){
-
     }
 
     canActivate(
@@ -23,14 +23,12 @@ export class SignInGuard implements CanActivate{
         Observable<boolean | UrlTree> | 
         Promise<boolean | UrlTree> {
 
-        if(this.userService.isLogged()){
+        if(this.tokenService.hasToken()){
             this.router.navigate(['/author']);
             return false;
         }
 
         return true;
     }
-
-
 
 }

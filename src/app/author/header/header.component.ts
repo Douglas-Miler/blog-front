@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { JWTPayload } from 'src/app/core/user/jwt-payload';
-import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 
-import { UserService } from './../../core/user/user.service';
+import { JWTPayloadService } from '../../core/jwt-payload/jwt-payload.service';
+import { JWTPayload } from 'src/app/core/jwt-payload/jwt-payload';
 
 @Component({
   selector: 'blog-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   user$: Observable<JWTPayload>;
 
-  constructor(
-    private userService: UserService) {
-
-    this.user$ = userService.getuser();
-   }
-
-  ngOnInit(): void {
-
+  constructor(private jwtPayloadService: JWTPayloadService) {
+    this.user$ = jwtPayloadService.getJWTPayload();
   }
+
 }

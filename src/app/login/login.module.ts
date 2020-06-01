@@ -1,5 +1,3 @@
-import { FooterModule } from './../shared/footer/footer.module';
-import { NavbarModule } from './../shared/navbar/navbar.module';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
@@ -10,6 +8,8 @@ import { CommonModule } from '@angular/common';
 
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormLoginComponent } from './form-login/form-login.component';
+import { FooterModule } from './../shared/footer/footer.module';
+import { NavbarModule } from './../shared/navbar/navbar.module';
 
 @NgModule({
     declarations: [
@@ -27,9 +27,6 @@ import { FormLoginComponent } from './form-login/form-login.component';
         
         ReactiveFormsModule,
         RouterModule,
-    ],
-    exports:[
-
     ]
 })
 export class LoginModule {

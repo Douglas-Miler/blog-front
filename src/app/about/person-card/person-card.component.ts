@@ -2,8 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'blog-person-card',
-    templateUrl: './person-card.component.html',
-    styleUrls: []
+    templateUrl: './person-card.component.html'
 })
 export class PersonCardComponent {
 

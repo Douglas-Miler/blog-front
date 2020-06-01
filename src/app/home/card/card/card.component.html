@@ -1,4 +1,4 @@
-<blog-search (onSubmit)="cards = $event"></blog-search>
+<blog-search (onSubmit)="cards = $event.cards; setSearchKeyWord($event.searchedText)"></blog-search>
 <div class="container pt-5">
     <h2 class="text-center border-bottom mb-0">
         POSTS MAIS RECENTES

@@ -6,8 +6,7 @@ import { AuthService } from './../../core/authentication/auth.service';
 
 @Component({
     selector:'blog-form-login',
-    templateUrl:'./form-login.component.html',
-    styleUrls: []
+    templateUrl:'./form-login.component.html'
     
 })
 export class FormLoginComponent implements OnInit {

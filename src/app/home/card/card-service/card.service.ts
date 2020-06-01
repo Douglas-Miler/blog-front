@@ -1,9 +1,10 @@
-import { environment } from './../../../core/environments/environment';
 import { HttpClient, HttpParams, HttpBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Card } from './card';
 import { Observable } from 'rxjs';
+
+import { environment } from './../../../core/environments/environment';
+import { Card } from './card';
 
 @Injectable({
     providedIn: 'root'
@@ -18,11 +19,17 @@ export class CardService {
 
     listCardsPaginated(page: number): Observable<Card[]>{
         const params = new HttpParams().append('page', page.toString());
-        return this.http.get<Card[]>(environment.apiUrl + '/cards', { params: {page:page.toString()} });
+        return this.http.get<Card[]>(
+            environment.apiUrl + '/cards', { params: {page:page.toString()} }
+        );
     }
 
     listSearchedCardsPaginated(page: number, subject: string){
-        const params = new HttpParams().append('page', page.toString()).append('subject', subject);
-        return this.http.get<Card[]>(environment.apiUrl + '/cards/search', { params : params });
+        const params = new HttpParams()
+            .append('page', page.toString()).append('subject', subject);
+
+        return this.http.get<Card[]>(
+            environment.apiUrl + '/cards/search', { params : params }
+        );
     }
 }

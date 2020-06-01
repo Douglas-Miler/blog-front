@@ -1,17 +1,18 @@
-import { FooterModule } from './../shared/footer/footer.module';
-import { NavbarModule } from './../shared/navbar/navbar.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IntroductionModule } from './introduction/introduction.module';
 import { CardModule } from './card/card.module';
 import { CarouselModule } from './carousel/carousel.module';
 import { HomeComponent } from './home/home.component';
+import { FooterModule } from './../shared/footer/footer.module';
+import { NavbarModule } from './../shared/navbar/navbar.module';
+import { IntroductionComponent } from './introduction/introduction.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    IntroductionComponent
   ],
   imports: [
     CommonModule,
@@ -21,11 +22,7 @@ import { HomeComponent } from './home/home.component';
     FooterModule,
     
     CarouselModule,
-    CardModule,
-    IntroductionModule
-  ],
-  exports:[
-
+    CardModule
   ]
 })
 export class HomeModule { }

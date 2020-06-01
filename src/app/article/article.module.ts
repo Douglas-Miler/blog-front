@@ -8,15 +8,13 @@ import { NavbarModule } from './../shared/navbar/navbar.module';
 import { AboutAuthorComponent } from './about-author/about-author.component';
 import { ArticleComponent } from './article/article.component';
 import { ArticlePageComponent } from './article-page/article-page.component';
-import { ToDatePipe } from './article/to-date.pipe';
 import { ResponseInterceptor } from './article-service/response.interceptor';
 
 @NgModule({
     declarations: [
         ArticlePageComponent,
         ArticleComponent,
-        AboutAuthorComponent,
-        ToDatePipe
+        AboutAuthorComponent
     ],
     imports: [
         CommonModule,

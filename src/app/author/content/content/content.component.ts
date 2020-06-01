@@ -46,27 +46,23 @@ export class ContentComponent implements OnInit {
   }
 
   save(){
-    this.authorService
-      .saveImage(this.image)
-      .subscribe(() => {
-        this.authorService.saveForm({
-          title: this.articleForm.get('title').value,
-          secondaryTitle: this.articleForm.get('secondaryTitle').value,
-          category: this.articleForm.get('category').value,
-          introduction: this.articleForm.get('introduction').value,
-          content: this.articleForm.get('content').value,
-          userId: 1,
-          creationDate: new Date()
-        }).subscribe(() => {
-            this.router.navigate(['/success']);
-          }, err => {
-              alert('Erro! Consulte o console para mais informações')
-              console.log(err);
-            });
-      },
-      err => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(this.image);
+    fileReader.onload = () => {
+      this.authorService.saveForm({
+        title: this.articleForm.get('title').value,
+        secondaryTitle: this.articleForm.get('secondaryTitle').value,
+        category: this.articleForm.get('category').value,
+        introduction: this.articleForm.get('introduction').value,
+        content: this.articleForm.get('content').value,
+        userId: 1,
+        creationDate: new Date(),
+        image: fileReader.result
+      }).subscribe(() => {
+        this.router.navigate(['/success']);
+      }, err => {
         alert('Erro! Consulte o console para mais informações')
         console.log(err);
       });
-  }
+  }}
 }

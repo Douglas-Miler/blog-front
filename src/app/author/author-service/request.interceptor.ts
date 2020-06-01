@@ -1,9 +1,10 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
 import { Observable, pipe, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { TokenService } from './../../core/token/token.service';
-import { catchError } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor{
@@ -14,7 +15,10 @@ export class RequestInterceptor implements HttpInterceptor{
         
         req = req.clone({
             setHeaders: {
-                Authorization: this.tokenService.hasToken() ? this.tokenService.getToken() : ''
+                Authorization: 
+                    this.tokenService.hasToken() 
+                        ? this.tokenService.getToken() 
+                            : ''
             }
         })
         

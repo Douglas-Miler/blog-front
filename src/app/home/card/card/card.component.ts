@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, OnChanges, SimpleChanges, } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -15,45 +15,76 @@ export class CardComponent implements OnInit, OnChanges {
   @Input() cards: Card[] = [];
   hasMore: boolean = true;
   currentPage: number = 0;
+  private _searchKeyWord: string = '';
 
   constructor(
     private activatedRoute: ActivatedRoute, 
     private cardService: CardService,
     private toastr: ToastrService
   ) {}
-
   
   ngOnInit(): void {
     this.cards = this.activatedRoute.snapshot.data['cards'];
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-      console.log('mudou');
+    changes.cards && console.log("mudou");
+  }
+
+  setSearchKeyWord(searchKeyWord: string){
+    this._searchKeyWord = searchKeyWord;
   }
 
   loadMore(){
-    this.cardService.listCardsPaginated(this.currentPage+1).subscribe(cards => {
-      if(cards.length){
-        this.cards = cards;
-        this.currentPage++;
-      }else{
-        this.hasMore = false;
-        this.toastr.warning('Você chegou ao fim', 'Atenção!', {timeOut: 2000});
-      }
-    });
-  }
-
-  loadLess(){
-    if(this.currentPage >= 1){
-      this.cardService.listCardsPaginated(this.currentPage-1).subscribe(cards => {
-        if(cards.length){
-          this.cards = cards;
-          this.currentPage--;
-        }else{
-          this.hasMore = false;
-        }
+    if(this._searchKeyWord){
+      this.cardService.listSearchedCardsPaginated(
+        this.currentPage+1, this._searchKeyWord
+      ).subscribe(cards => {
+        this.loadMoreLogic(cards);
+      });
+    }
+    else{
+      this.cardService.listCardsPaginated(this.currentPage+1).subscribe(cards => {
+        this.loadMoreLogic(cards);
       });
     }
   }
 
+  loadLess(){
+    if(this.currentPage >= 1){
+      if(this._searchKeyWord){
+        this.cardService.listSearchedCardsPaginated(
+          this.currentPage-1, this._searchKeyWord
+        ).subscribe(cards => {
+          this.loadLessLogic(cards);
+        });
+      }
+      else{
+        this.cardService.listCardsPaginated(this.currentPage-1)
+          .subscribe(cards => {
+            this.loadLessLogic(cards);
+          }
+        );
+      }
+    }
+  }
+
+  private loadMoreLogic(cards: Card[]){
+    if(cards.length){
+      this.cards = cards;
+      this.currentPage++;
+    }else{
+      this.hasMore = false;
+      this.toastr.warning('Você chegou ao fim', 'Atenção!', {timeOut: 2000});
+    }
+  }
+
+  private loadLessLogic(cards: Card[]){
+    if(cards.length){
+      this.cards = cards;
+      this.currentPage--;
+    }else{
+      this.hasMore = false;
+    }
+  }
 }

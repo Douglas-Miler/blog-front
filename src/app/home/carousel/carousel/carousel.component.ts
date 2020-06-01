@@ -1,13 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'blog-carousel',
   templateUrl: './carousel.component.html'
 })
-export class CarouselComponent implements OnInit {
-
-  ngOnInit(): void {
-
-  }
+export class CarouselComponent {
 
 }
