@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { environment } from './../../core/environments/environment';
 import { ArticleForm } from './article-form';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
     providedIn: 'root'

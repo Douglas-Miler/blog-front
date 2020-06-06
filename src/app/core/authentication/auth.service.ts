@@ -4,8 +4,8 @@ import { tap } from 'rxjs/operators';
 
 import { Token } from '../token/token';
 import { JWTPayloadService } from '../jwt-payload/jwt-payload.service';
-import { environment } from './../environments/environment';
 import { TokenService } from './../token/token.service';
+import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
