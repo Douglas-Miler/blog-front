@@ -13,12 +13,17 @@
         <div class="row justify-content-end mr-2">
           <li class="ml-5">
             <button 
-              (click) = "logout()" 
+              (click) = "logout(); " 
               mat-raised-button
               color="primary">SAIR</button>
           </li>
         </div>
       </div>
+
+      <ngx-loading 
+              [show]="loading" 
+              [config]="config"
+      ></ngx-loading>
     </ul>
   </nav>
 </header>

@@ -2,7 +2,12 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
+
 import { AuthorService } from './../../author-service/author.service';
+
+const PRIMARY_COLOR = '#ffffff';
+const SECONDARY_COLOR = '#3f51b5';
 
 @Component({
   selector: 'blog-content',
@@ -10,14 +15,31 @@ import { AuthorService } from './../../author-service/author.service';
 })
 export class ContentComponent implements OnInit {
 
+  primaryColour = PRIMARY_COLOR;
+  secondaryColour = SECONDARY_COLOR;
+  ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
+  config = {
+              animationType: ngxLoadingAnimationTypes.circle, 
+              primaryColour: this.primaryColour, 
+              secondaryColour: this.secondaryColour, 
+              backdropBorderRadius: '3px',
+              backdropBackgroundColour: 'rgba(255,255,255,0)'
+          }
+  loading = false;
   articleForm: FormGroup;
   image: File;
+  imageFileName: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private authorService: AuthorService,
     private router: Router
   ){}
+
+  setImageFile(file: File){
+    this.image = file;
+    this.imageFileName = file.name;
+  }
 
   ngOnInit(): void {
     this.articleForm = this.formBuilder.group({
@@ -46,6 +68,7 @@ export class ContentComponent implements OnInit {
   }
 
   save(){
+    this.loading = true;
     const fileReader = new FileReader();
     fileReader.readAsDataURL(this.image);
     fileReader.onload = () => {
@@ -58,11 +81,15 @@ export class ContentComponent implements OnInit {
         userId: 1,
         creationDate: new Date(),
         image: fileReader.result
-      }).subscribe(() => {
-        this.router.navigate(['/success']);
-      }, err => {
-        alert('Erro! Consulte o console para mais informações')
-        console.log(err);
-      });
+      })
+      .subscribe(() => {
+          this.loading = false;
+          this.router.navigate(['/success']);
+        }, err => {
+          this.loading = false;
+          alert('Erro! Consulte o console para mais informações')
+          console.log(err);
+        }
+      );
   }}
 }

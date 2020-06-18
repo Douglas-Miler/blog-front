@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { ContentModule } from './content/content.module';
 import { FooterModule } from './../shared/footer/footer.module';
@@ -28,7 +29,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         HttpClientModule,
         RouterModule,
         NgbNavModule,
-        MatButtonModule
+        MatButtonModule,
+        NgxLoadingModule.forRoot({})
     ],
     exports:[
         AuthorComponent

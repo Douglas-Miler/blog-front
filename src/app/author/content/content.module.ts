@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
-import {TextFieldModule} from '@angular/cdk/text-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { TextFieldModule } from '@angular/cdk/text-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { NgxLoadingModule } from 'ngx-loading';
 
 import { ContentComponent } from './content/content.component';
 import { NgModule } from '@angular/core';
@@ -22,7 +24,9 @@ import { NgModule } from '@angular/core';
         MatInputModule,
         MatButtonModule,
         ReactiveFormsModule,
-        RouterModule
+        RouterModule,
+
+        NgxLoadingModule.forRoot({})
     ],
     exports:[
         ContentComponent

@@ -2,7 +2,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
+
 import { AuthService } from './../../core/authentication/auth.service';
+
+const PRIMARY_COLOR = '#ffffff';
+const SECONDARY_COLOR = '#3f51b5';
 
 @Component({
     selector:'blog-form-login',
@@ -11,6 +16,17 @@ import { AuthService } from './../../core/authentication/auth.service';
 })
 export class FormLoginComponent implements OnInit {
 
+  primaryColour = PRIMARY_COLOR;
+  secondaryColour = SECONDARY_COLOR;
+  ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
+  config = {
+              animationType: ngxLoadingAnimationTypes.circle, 
+              primaryColour: this.primaryColour, 
+              secondaryColour: this.secondaryColour, 
+              backdropBorderRadius: '3px',
+              backdropBackgroundColour: 'rgba(255,255,255,0)'
+          }
+  loading = false;
   loginForm: FormGroup;
   @ViewChild('emailInput') emailInput: ElementRef<HTMLInputElement>;
 
@@ -31,6 +47,7 @@ export class FormLoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     const email = this.loginForm.get('email').value;
     const password = this.loginForm.get('password').value;
 
@@ -38,9 +55,11 @@ export class FormLoginComponent implements OnInit {
         .authenticate(email, password)
         .subscribe(
           () => {
+            this.loading = false;
             this.router.navigate(['/author']);
           },
           err => {
+            this.loading = false;
             console.log(err);
             alert('Email e/ou senhas inválidos');
             this.loginForm.reset();

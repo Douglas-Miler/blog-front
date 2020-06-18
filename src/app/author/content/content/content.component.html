@@ -143,9 +143,12 @@
                         required="true"
                         type="file"
                         accept="image/*"
-                        (change)="image = $event.target.files[0]"
+                        (change)="setImageFile($event.target.files[0])"
                     >
                     <br>
+                    <small *ngIf="!articleForm.get('image').errors?.required">
+                        {{imageFileName}}
+                    </small>
                     <small style="color: red;"
                         *ngIf="articleForm.get('image').errors?.required">
                         Escolha uma imagem!
@@ -165,5 +168,10 @@
                 </div>
             </div>
         </div>
+
+        <ngx-loading 
+            [show]="loading" 
+            [config]="config"
+        ></ngx-loading>
     </form>
 </main>
